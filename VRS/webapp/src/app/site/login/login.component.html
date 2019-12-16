@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Login</h5>
+            <div class="row ml-2 mr-2 heading">
+                <div class="col-lg-12">
+                  <div class="alert alert-info" *ngIf="this.vehicleService.clickedOnAdd">Please login before adding an
+                    item to Bookings.</div>
+                </div>
+              </div>
+              <div class="row ml-2 mr-2 heading">
+                <div class="col-lg-12">
+                  <div class="alert alert-danger" *ngIf="!this.authService.validCredentials">Invalid username/password.</div>
+                </div>
+              </div>
+              <div class="row ml-2 mr-2 heading">
+                  <div class="col-lg-12">
+                    <div class="alert alert-dark" *ngIf="this.authService.userStatus">User Not Approved/Denied</div>
+                  </div>
+                </div>
+            <form [formGroup]="loginForm" (submit)="onSubmit()" class="form-signin">
+              <div class="form-label-group">
+                  <label for="username">Username</label> 
+                  <input class="form-control" type="text" id="username"
+                  formControlName="username" placeholder="Enter Username" required autofocus>
+                  <div class="invalid" *ngIf="username.touched && username.invalid && username.errors.required" >Username is required</div>
+               
+              </div>
+
+              <div class="form-label-group">
+                  <label for="password">Password</label>
+                  <input class="form-control" type="password" id="password"
+                  formControlName="password"  placeholder="Enter Password" required>
+                  <div class="invalid" *ngIf="password.touched && password.invalid && password.errors.required">Password is required</div>
+                 
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase col-md-4" type="submit">Login</button>
+             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

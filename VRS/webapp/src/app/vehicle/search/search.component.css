@@ -1,0 +1,89 @@
+.material-icons.md-36 {
+	font-size: 36px;
+	vertical-align: middle;
+}
+
+.material-icons.md-30 {
+	vertical-align: middle;
+}
+
+.material-icons.md-31 {
+	vertical-align: bottom;
+}
+
+.material-icons.md-10 {
+	vertical-align: middle;
+	font-size: 18px;
+	padding-right: 3px;
+}
+
+.text-color {
+	color: #b52e06;
+}
+
+.launch-size {
+	font-size: 15px;
+	color: #808080;
+}
+
+.trim {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.margin {
+	margin-bottom: 50px;
+}
+
+.heading {
+	padding: 10px;
+}
+
+.md-15 {
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+}
+
+.md-20 {
+	margin-left: 11px;
+	margin-right: 11px;
+}
+
+.grey {
+	color: #808080;
+}
+
+.search-image {
+	height: auto;
+	width: 100%;
+	background-image:
+		url("https://images.unsplash.com/photo-1559929555-e74f23797537?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.input-group-text.green {
+	background-color: #263139;
+	border: 0px;
+}
+
+.invalid-feedback.md-6 {
+	display: block;
+}
+
+.navbar-bg {
+	background: linear-gradient(to right, #373b44, #4286f4);
+}
+
+.red:hover {
+	color: red;
+}
+
+.btn.btn-blue, .btn.btn-blue:hover, .btn.btn-blue:active, .btn.btn-blue:link
+	{
+	background-color: #263139;
+	border-color: #263139;
+	color: #ffffff;
+}

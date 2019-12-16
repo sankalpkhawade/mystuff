@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Welcome to Cognizant</title>
+<script type="text/javascript">
+    function validateForm(){
+    var x=document.forms["myForm"]["username"].value;
+    var y=document.forms["myForm"]["password"].value;
+   
+    if(y=="")
+    {
+        alert("Password cannot be empty");
+        return false;
+    }
+    
+
+
+</script>
+</head>
+<body>
+<h1>
+Personal details
+</h1>
+<form action="" method="get" name="myForm" onsubmit="return validateForm()">
+<table>
+<tr>
+<td><label id="Name" for="user">Name</label></td>
+<td><input type="text" name="username" id="user"></td>
+</tr>
+<tr>
+<td><label id="gender" >Gender</label></td>
+<td><label id="Male" for="gen">Male</label><input type="radio" name="gender" id="gen">
+<label id="Female" for="geen">Female</label><input type="radio" name="gender" id="geen"></td>
+</tr>
+<tr>
+<td><label id="hometown" for="hometown">Home Town</label></td>
+<td>
+<select name="hometown">
+<option value="New Delhi">New Delhi</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Kolkata">Kolkata</option>
+<option value="Chennai">Chennai</option>
+<option value="Hyderabad">Hyderabad</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><label id="Address" for="Address">Address</label></td>
+<td><textarea name="Address" rows="4" cols="50"></textarea></td>
+</tr>
+<tr>
+<td><label id="Skills" for="Skills">Skills</label></td>
+<td><label id="Java" for="java">Java</label><input type="checkbox" name="Skills" id="java">
+<label id="HTML" for="html">HTML</label><input type="checkbox" name="Skills" id="html">
+<label id="Oracle" for="orc">Oracle</label><input type="checkbox" name="Skills" id="orc">
+</td>
+</tr>
+<tr>
+<td><label id="password" for="password">Password</label></td>
+<td><input type="password" name="password"></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" name="submit"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+

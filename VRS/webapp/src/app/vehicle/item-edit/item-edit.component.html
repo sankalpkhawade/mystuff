@@ -1,0 +1,157 @@
+<div *ngIf="saved">
+	<div class="cointainer-fluid">
+		<h2 class="heading">Edit Vehicle Details</h2>
+
+		<form [formGroup]="form" (submit)="onSubmit()">
+			<div class="row heading">
+				<div class="col-lg-6 ">
+					<h5>
+						<label for="name">Vehicle Name</label>
+					</h5>
+					<input type="text" class="form-control" id="name" [formControl]="name" formControlName="name"
+						disabled>
+
+				</div>
+				<div class="col-lg-6 ">
+					<h5>
+						<label for="vh_number">Vehicle Number</label>
+					</h5>
+					<input type="text" class="form-control" id="vh_number" [formControl]="vh_number"
+						formControlName="vh_number" disabled>
+
+				</div>
+			</div>
+			<div class="row heading">
+				<div class="col-lg-12 ">
+					<h5>
+						<label for="photoURL">Vehicle Image URL</label>
+					</h5>
+					<input type="text" class="form-control" id="photoURL" [formControl]="photoURL"
+						formControlName="photoURL">
+					<div *ngIf="photoURL.invalid && photoURL.errors.required" class="invalid">
+						Photo URL is required.
+					</div>
+
+				</div>
+
+			</div>
+			<div class="md-20 ">
+				<div class="row  ">
+					<div class="col-lg-3 heading  ">
+						<h5>
+							<label for="price">Vehicle Price</label>
+						</h5>
+						<input type="number" class="form-control" id="price" formControlName="price"
+							[formControl]="price">
+						<div *ngIf="price.invalid && price.errors.required" class="invalid">
+							Price per day is required.
+						</div>
+
+					</div>
+					<div class="col-lg-3 heading">
+						<h5>
+							<label for="seater">Seater</label>
+						</h5>
+						<select class="form-control" id="seater" formControlName="seater" [formControl]="seater">
+							<option></option>
+							<option *ngFor="let seats of Seaters" selected="vehicleItem.seater == seats"
+								[value]="seats">{{seats}}</option>
+
+						</select>
+						<div *ngIf="seater.invalid && seater.errors.required" class="invalid">
+							Seater is required.
+						</div>
+
+					</div>
+					<div class="col-lg-3 heading">
+						<h5>
+							<label for="type">Vehicle Type</label>
+						</h5>
+						<select class="form-control" id="type" formControlName="type" [formControl]="type">
+							<option></option>
+							<option *ngFor="let item of types" selected="vehicleItem.type == item" [value]="item">
+								{{item}}</option>
+
+						</select>
+						<div *ngIf="type.invalid && type.errors.required" class="invalid">
+							Seater is required.
+						</div>
+
+					</div>
+
+					<div class="col-lg-3 heading">
+						<h5>Active</h5>
+						<div class="form-check">
+							<input type="radio" class=" form-check-input md-15 " id="yes" [value]=true
+								formControlName="active" [formControl]="active">&nbsp;
+							<label for="yes"> Yes </label> &nbsp;&nbsp;
+							<input type="radio" class=" form-check-input md-15 ml-1" id="no" [value]=false
+								formControlName="active" [formControl]="active">
+							<label for="no" class="ml-4">No</label>
+						</div>
+						<div *ngIf="active.invalid && active.errors.required" class="invalid">
+							Active is required.
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="md-20 ">
+				<div class="row  ">
+					<div class="col-lg-3 heading  ">
+						<h5>
+							<label for="branch">Branch</label>
+						</h5>
+						<input type="text" class="form-control" id="branch" formControlName="branch"
+							[formControl]="branch">
+						<div *ngIf="branch.invalid && branch.errors.required" class="invalid">
+							Branch is required.
+						</div>
+						<div class="invalid" *ngIf="branch.errors?.maxlength">Branch Code must be less then 5 char</div>
+					</div>
+
+					<div class="col-lg-3 heading form-check">
+						<h5>
+							<label for="in_exp_date">Insurance Expiry Date</label>
+						</h5>
+						<input type="date" class="form-control " id="in_exp_date" formControlName="in_exp_date"
+							[formControl]="in_exp_date" placeholder="dd/mm/yyyy">
+						<div *ngIf="in_exp_date.invalid && in_exp_date.errors.required" class="invalid">
+							Insurance Expiry Date is required.
+						</div>
+					</div>
+
+					<div class="col-lg-3 heading form-check">
+						<h5>
+							<label for="last_serv_date">Last Service Date</label>
+						</h5>
+						<input type="date" class="form-control " id="last_serv_date" formControlName="last_serv_date"
+							[formControl]="last_serv_date" placeholder="dd/mm/yyyy">
+						<div *ngIf="last_serv_date.invalid && last_serv_date.errors.required" class="invalid">
+							Last Service Date is required.
+						</div>
+					</div>
+
+
+					<div class="col-lg-3 heading form-check">
+						<h5>
+							<label for="serv_due_date">Service Due Date</label>
+						</h5>
+						<input type="date" class="form-control " id="serv_due_date" formControlName="serv_due_date"
+							[formControl]="serv_due_date" placeholder="dd/mm/yyyy">
+						<div *ngIf="serv_due_date.invalid && serv_due_date.errors.required" class="invalid">
+							Service Due Date is required.
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="row heading">
+
+				<div class="col-lg-5">
+					<button type="submit" class="btn btn-blue" [disabled]="!form.valid">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

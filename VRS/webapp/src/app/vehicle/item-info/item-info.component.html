@@ -1,0 +1,183 @@
+<div class="card h-200 mt-4 ml-2 mr-2">
+  <img class="card-img-top" src={{vehicleItem.image}}>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-8">
+        <h5 class="card-title">{{vehicleItem.name}}</h5>
+      </div>
+      <div class="ml-auto">
+        <h6 class="text-color">{{vehicleItem.price | currency:"USD":'symbol' : '1.0-0'}}/ Day</h6>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-8">
+        <h5 class="card-title text-success">{{vehicleItem.vehicle_no}}</h5>
+      </div>
+      <div class="ml-auto">
+        <p><i class="material-icons md-10">local_gas_station</i>{{vehicleItem.type}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8">
+
+        <div class="card-text">
+          <i class="material-icons md-10">home</i>{{vehicleItem.branch}}
+        </div>
+
+      </div>
+      <div class="ml-auto">
+        <i class="material-icons md-31">airline_seat_recline_normal</i>
+        <span>{{vehicleItem.seater}}</span>
+
+      </div>
+    </div>
+
+    <div *ngIf="this.vehicleService.addedToBookings && this.vehicleService.bookingsAddedId==vehicleItem.id">
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="alert alert-success">Vehicle Booked
+            successfully.</div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-6 mt-2">
+        <span *ngIf="isAdmin">
+          <span class="badge badge-success " *ngIf="vehicleItem.active">Active</span>
+          <span class="badge badge-danger " *ngIf="!vehicleItem.active">Inactive</span>
+        </span>
+      </div>
+
+    </div>
+
+    <div class="overlay">
+      <div class="card text">
+        <div class="row mt-1">
+          <div class="col-6">
+            <div class="ml-auto mt-0 pt-0">
+              <span class="text-muted mt-0 pt-0"> <i class="material-icons icon-size mb-0 pd-0">access_time</i>
+                <label class="icon-size mb-0 pd-0">Insurance Date</label>
+                <label id="dateofLaunch" name="date"
+                  class="d-block mt-0 pd-0">{{vehicleItem.insurance_exp_date|date:'dd/MM/yyyy'}}</label>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="ml-auto mt-0 pt-0">
+              <span class="text-muted mt-0 pt-0"> <i class="material-icons icon-size mb-0 pd-0">access_time</i>
+                <label class="icon-size mb-0 pd-0">Service Date</label>
+                <label id="dateofLaunch" name="date"
+                  class="d-block mt-0 pd-0">{{vehicleItem.last_service_date | date:'dd/MM/yyyy'}}</label>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col-8">
+            <div class="ml-auto mt-0 pt-0">
+              <span class="text-muted mt-0 pt-0"> <i class="material-icons icon-size mb-0 pd-0">access_time</i>
+                <label class="icon-size mb-0 pd-0">Service Due Date</label>
+                <label id="dateofLaunch" name="date"
+                  class="d-block mt-0 pd-0">{{vehicleItem.service_due_date | date:'dd/MM/yyyy'}}</label>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="ml-auto" *ngIf="isAdmin">
+              <a [routerLink]="['/item-edit',vehicleItem.id]">
+                <button type="button" class="btn btn-primary edit">
+                  <i class="material-icons md-10 ">edit </i>Edit
+                </button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div
+          *ngIf="!this.bookingsService.bookingsEmpty && !isAdmin && vehicleItem.active && !vehicleItem.status  && !dateAvailable">
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="alert alert-secondary">You already have a booking</div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="vehicleItem.status && !isAdmin ">
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="alert alert-warning">This vehicle is already book. Select other Vehicle.</div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="!vehicleItem.active && !isAdmin && !dateAvailable">
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="alert alert-danger">This vehicle is currently not active.</div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="!isAdmin && dateAvailable">
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="alert alert-danger">This vehicle is currently not Insured.</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div
+          *ngIf="!isAdmin && this.bookingsService.bookingsEmpty && !vehicleItem.status && vehicleItem.active && !dateAvailable">
+          <form [formGroup]="Bookingform" (submit)="onSubmit(vehicleItem.id)">
+            <div class=" heading form-check">
+              <label for="startDate">Start Booking Date</label>
+              <input type="date" class="form-control " id="startDate" formControlName="startDate"
+                [formControl]="startDate" placeholder="dd/mm/yyyy">
+              <div *ngIf="startDate.invalid && startDate.errors.required && startDate.touched" class="invalid">
+                Start Date is required.
+              </div>
+            </div>
+
+            <div class=" heading form-check ">
+              <div class="row">
+                <div class="col-6"></div>
+                <div class="mr-2">
+                  <label class="" for="endDate">End Booking Date</label></div>
+              </div>
+              <input type="date" class="form-control " id="endDate" formControlName="endDate" [formControl]="endDate"
+                placeholder="dd/mm/yyyy">
+              <div *ngIf="endDate.invalid && endDate.errors.required && endDate.touched" class="invalid">
+                End Date is required.
+
+              </div>
+            </div>
+
+            <div class="row ml-2 mr-2 heading">
+              <div class="col-6 ">
+                <button type="submit" class="btn btn-blue" [disabled]="!Bookingform.valid"> <i
+                    class="material-icons md-10">sports_motorsports </i> Book</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="row mt-4 launch-size" *ngIf="isAdmin">
+          <!-- <div class="col-5">
+          <div>
+              <button type="button" class="btn btn-danger " (click)="deleteVehicleClicked.emit(vehicleItem.id)">
+                <i class="material-icons">
+                  delete_sweep
+                  </i>
+                </button>
+          </div>
+        </div> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

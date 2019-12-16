@@ -1,0 +1,152 @@
+<div class="container signup-image">
+  <div class="col-lg-10 mx-auto mb-5 displayStyle">
+    <div class="card mt-4">
+      <div class="row ml-3 mr-3 mt-3">
+        <h2>Signup</h2>
+      </div>
+      <form [formGroup]="signupForm" (submit)="this.userService.addUser(signupForm.value)">
+        <div class="md-20">
+          <div class="row ml-2 mr-2 heading">
+            <div class="col-lg-12">
+              <div class="alert alert-danger" *ngIf="!this.userService.userExists">Username already exists</div>
+
+            </div>
+          </div>
+
+          <div class="row ml-2 mr-2 header">
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="username">Username</label>
+              </div>
+              <input class="form-control" type="text" id="username" formControlName="username" [formControl]="username"
+                placeholder="Enter Username">
+              <div class="invalid" *ngIf="username.invalid && username.errors.required && username.touched">Username is
+                required</div>
+              <div class="invalid" *ngIf="username.errors?.maxlength">Username cannot exceed more than 20 Characters.
+              </div>
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="branch">Branch Code</label>
+              </div>
+              <input class="form-control" type="text" id="branch" formControlName="branch" [formControl]="branch"
+                placeholder="Enter Branch Code">
+              <div class="invalid" *ngIf="branch.invalid && branch.errors.required && branch.touched">Branch Code is
+                required</div>
+              <div class="invalid" *ngIf="branch.errors?.maxlength">Branch Code must be less then 5 digits</div>
+
+            </div>
+
+          </div>
+
+          <div class="row ml-2 mr-2 header">
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="firstname">First Name</label>
+              </div>
+              <input class="form-control" type="text" id="firstname" formControlName="firstname"
+                [formControl]="firstname" placeholder="Enter First Name">
+              <div class="invalid" *ngIf="firstname.invalid && firstname.errors.required && firstname.touched">First
+                Name
+                is required</div>
+            </div>
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="lastname">Last Name</label>
+              </div>
+              <input class="form-control" type="text" id="lastname" formControlName="lastname" [formControl]="lastname"
+                placeholder="Enter Last Name">
+              <div class="invalid" *ngIf="lastname.invalid && lastname.errors.required && lastname.touched">Last Name is
+                required</div>
+            </div>
+          </div>
+          <div class="row ml-2 mr-2 header">
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="age">Age</label>
+              </div>
+              <input class="form-control" type="number" id="age" formControlName="age" [formControl]="age"
+                placeholder="Enter Age">
+              <div class="invalid" *ngIf="age.invalid && age.errors.required && age.touched">Age is required</div>
+              <div class="invalid" *ngIf="age.errors?.min">Age must be atleast 18 Years</div>
+            </div>
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="gender">Gender</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class=" form-check-input md-15 " id="male" value="Male" formControlName="gender"
+                  [formControl]="gender">&nbsp;
+                <label for="male"> Male </label> &nbsp;&nbsp;
+                <input type="radio" class=" form-check-input md-15 ml-1" id="female" value="Female"
+                  formControlName="gender" [formControl]="gender">
+                <label for="female" class="ml-4">Female</label>
+              </div>
+            </div>
+
+          </div>
+          <div class="row ml-2 mr-2 header">
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="contact">Contact Number</label>
+              </div>
+              <input class="form-control" type="number" id="contact" formControlName="contact" [formControl]="contact"
+                placeholder="Enter Contact Number">
+              <div class="invalid" *ngIf="contact.invalid && contact.errors.required && contact.touched">Contact Number
+                is
+                required</div>
+              <div class="invalid" *ngIf="contact.errors?.min || contact.errors?.max">Contact Number must be 10 digits
+                long</div>
+
+            </div>
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="email">Email Id</label>
+              </div>
+              <input class="form-control" type="text" id="email" formControlName="email" [formControl]="email"
+                placeholder="Enter Email Id">
+              <div class="invalid" *ngIf="email.invalid && email.errors.required && email.touched">Email is required
+              </div>
+
+            </div>
+          </div>
+          <div class="row ml-2 mr-2 header">
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="password">Password</label>
+              </div>
+              <input class="form-control" type="password" id="password" formControlName="password"
+                [formControl]="password" placeholder="Enter Password">
+              <div class="invalid" *ngIf="password.invalid && password.errors.required && password.touched">Password is
+                required</div>
+              <div class="invalid" *ngIf="password.errors?.minlength">Password must be atleast 6 Character long</div>
+            </div>
+            <div class="col-lg-6 col-md-6 heading">
+              <div>
+                <label for="conPassword">Confirm Password</label>
+              </div>
+              <input class="form-control" type="password" id="conPassword" formControlName="ConPassword"
+                [formControl]="ConPassword" placeholder="Confirm Password">
+              <div class="invalid" *ngIf="ConPassword.invalid && ConPassword.errors.required && ConPassword.touched">
+                Enter
+                Confiirm Password</div>
+              <div class="invalid" *ngIf="signupForm.get('ConPassword').hasError('nomatch')">Password and Confirm
+                Password
+                do not match</div>
+
+            </div>
+
+          </div>
+
+          <div class="row ml-2 mr-2 heading">
+            <div class="col-6 ">
+              <button type="submit" class="btn btn-blue" [disabled]="!signupForm.valid">Signup</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

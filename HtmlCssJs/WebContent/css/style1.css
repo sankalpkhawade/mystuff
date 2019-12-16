@@ -1,0 +1,12 @@
+@CHARSET "ISO-8859-1";
+input,textarea,select{
+		background-color:yellow;
+		color: green;
+		border-color:maroon;
+		border-width:5px;
+	}
+	.table1{
+		background-color:orange;
+		border:14px solid;
+		padding:10px;
+	}

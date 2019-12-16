@@ -1,0 +1,349 @@
+<div class="container register-form mt-4" *ngIf="!data">
+  <div class="form">
+    <div class="note">
+      <p>Mentor Registration Form</p>
+    </div>
+    <form class="" [formGroup]="signupForm" (submit)="onSubmitSignUp()">
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="userId">User Name <span class="text-danger">*</span></label>
+              <input id="userName" name="userName" placeholder="Enter Your User Name" class="form-control mb-3"
+                type="text" formControlName="userName">
+              <div class="validation-error"
+                *ngIf="signupForm.get('userName').touched && signupForm.get('userName').hasError('required')">
+                Username is required.
+              </div>
+              <div class="validation-error"
+                *ngIf="signupForm.get('userName').touched && signupForm.get('userName').hasError('maxlength')">
+                Username cannot exceed 20 characters.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="firstName">First Name <span class="text-danger">*</span></label>
+              <input type="text" id="firstName" class="form-control mb-3" placeholder="Enter First Name"
+                formControlName="firstName">
+              <div class="validation-error"
+                *ngIf="signupForm.get('firstName').touched && signupForm.get('firstName').hasError('required')">
+                First Name is required.
+              </div>
+              <div class="validation-error"
+                *ngIf="signupForm.get('firstName').touched && signupForm.get('firstName').hasError('pattern')">
+                First Name cannot have numbers.
+              </div>
+              <div class="validation-error"
+                *ngIf="signupForm.get('firstName').touched && signupForm.get('firstName').hasError('maxlength')">
+                First Name cannot exceed 50 characters.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="lastName">Last Name <span class="text-danger">*</span></label>
+              <input id="lastName" name="lastName" placeholder="Enter Your Last name" class="form-control mb-3"
+                type="text" formControlName="lastName">
+              <div class="validation-error"
+                *ngIf="signupForm.get('lastName').touched && signupForm.get('lastName').hasError('required')">
+                Last Name is required.
+              </div>
+              <div class="validation-error"
+                *ngIf="signupForm.get('lastName').touched && signupForm.get('lastName').hasError('pattern')">
+                Last Name cannot have numbers.
+              </div>
+              <div class="validation-error"
+                *ngIf="signupForm.get('lastName').touched && signupForm.get('lastName').hasError('maxlength')">
+                Last Name cannot exceed 50 characters.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="email">Email Id <span class="text-danger">*</span></label>
+              <input id="email" name="email" placeholder="Enter Your User Email" class="form-control mb-3" type="text"
+                formControlName="email">
+              <div class="validation-error"
+                *ngIf="signupForm.get('email').touched && signupForm.get('email').hasError('required')">
+                Email is required.
+              </div>
+              <div class="validation-error"
+                *ngIf="signupForm.get('email').touched && signupForm.get('email').hasError('email')">
+                Enter Valid Email.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="contact">Contact No <span class="text-danger">*</span></label>
+              <div class="controls">
+                <input id="contact" name="contact" placeholder="Enter Your Contact Number" class="form-control mb-3"
+                  type="text" formControlName="contact">
+                <div class="validation-error"
+                  *ngIf="signupForm.get('contact').touched && signupForm.get('contact').hasError('required')">
+                  Contact is required.
+                </div>
+                <div class="validation-error"
+                  *ngIf="signupForm.get('contact').touched && signupForm.get('contact').hasError('pattern')">
+                  Contact Should be a Number.
+                </div>
+
+                <div class="validation-error"
+                  *ngIf="signupForm.get('contact').touched && signupForm.get('contact').hasError('min') || signupForm.get('contact').hasError('max')">
+                  Enter Valid Contact Number.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="password">Password <span class="text-danger">*</span></label>
+              <div class="controls">
+                <input id="password" placeholder="Enter Password" class="form-control mb-3" type="password"
+                  formControlName="password">
+                <div class="validation-error"
+                  *ngIf="signupForm.get('password').touched && signupForm.get('password').hasError('required')">
+                  Password is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="confirmpassword">Confirm Password <span
+                  class="text-danger">*</span></label>
+              <div class="controls">
+                <input id="confirmpassword" placeholder="Enter Confirm Password" class="form-control mb-3"
+                  type="password" formControlName="confirmpassword">
+                <div class="validation-error"
+                  *ngIf="signupForm.get('confirmpassword').touched && signupForm.get('confirmpassword').hasError('required')">
+                  Confirm Password is required
+                </div>
+                <div class="validation-error"
+                  *ngIf="signupForm.get('confirmpassword').touched && signupForm.get('confirmpassword').hasError('nomatch')">
+                  Password and Confirm Password does not match
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="linkedInUrl">LinkedIn Url</label>
+              <div class="controls">
+                <input id="linkedInUrl" placeholder="Enter Url" class="form-control mb-3" type="text"
+                  formControlName="linkedInUrl">
+                <div class="validation-error"
+                  *ngIf="signupForm.get('linkedInUrl').touched && signupForm.get('linkedInUrl').hasError('required')">
+                  LinkedInUrl is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label" for="experience">Experience</label>
+              <div class="controls">
+                <input id="experience" placeholder="Enter experience" class="form-control mb-3" type="number"
+                  formControlName="experience">
+                <div class="validation-error"
+                  *ngIf="signupForm.get('experience').touched && signupForm.get('experience').hasError('required')">
+                  Experience is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 mt-2" *ngIf="formSubmitted">
+          <div class="alert alert-success alert-dismissible fade show alert-msg" role="alert">
+            Submitted Successfully
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-12 mt-2" *ngIf="formnotSubmitted">
+          <div class="alert alert-danger alert-dismissible fade show alert-msg" role="alert">
+            Not Submitted Successfully
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <button class="btn btnSubmit" type="submit" [disabled]="!signupForm.valid">Next
+          <i class="material-icons align-icon md-15">arrow_right_alt</i>
+          </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="container register-form mt-4" *ngIf="data">
+  <div class="form">
+    <div class="note">
+      <p>Mentor Registration Form</p>
+      <button class="btn btnSubmit float-right" type="submit">Submit</button>
+    </div>
+
+    <form [formGroup]="mentorForm" (submit)="onSubmitmentorSkill()">
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="skillName">Skill Name</label>
+              <div class="controls">
+                <select id="skillName" name="skillName" class="form-control mb-3" formControlName="skillName" required>
+                  <option value="" selected>Select Skill Name</option>
+                  <option value="Java Full Stack">1.Java Full Stack</option>
+                  <option value=".net">2..net</option>
+                  <option value="Cyber Security">3.Cyber Security</option>
+                  <option value="Data Science">4.Data Science</option>
+                </select>
+                <div class="validation-error"
+                  *ngIf="mentorForm.get('skillName').touched && mentorForm.get('skillName').hasError('required')">
+                  Skill Name is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="facilities">Experience</label>
+              <div class="controls">
+                <input id="experience" placeholder="Enter Experience" class="form-control mb-3" type="number"
+                  formControlName="experience">
+              </div>
+              <div class="validation-error"
+                *ngIf="mentorForm.get('experience').touched && mentorForm.get('experience').hasError('required')">
+                Experience is required.
+              </div>
+              <div class="validation-error"
+                *ngIf="mentorForm.get('experience').touched && mentorForm.get('experience').hasError('pattern')">
+                Experience should be a number.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="trainings">Trainigs Delivered</label>
+              <div class="controls">
+                <input id="trainings" placeholder="Enter No of Trainigs" class="form-control mb-3" type="number"
+                  formControlName="trainings">
+              </div>
+              <div class="validation-error"
+                *ngIf="mentorForm.get('trainings').touched && mentorForm.get('trainings').hasError('required')">
+                Experience is required.
+              </div>
+              <div class="validation-error"
+                *ngIf="mentorForm.get('trainings').touched && mentorForm.get('trainings').hasError('pattern')">
+                Experience should be a number.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="control-label" for="facilities">Facilities</label>
+              <div class="controls">
+                <select id="facilities" name="facilities" class="form-control mb-3" formControlName="facilities"
+                  required>
+                  <option value="" selected>Select facilities</option>
+                  <option value="Books">1.Books</option>
+                  <option value="Video Lectures">2.Video Lectures</option>
+                  <option value="Audio Books">3.Audio Books</option>
+                  <option value="Test Series">4.Test series</option>
+                </select>
+                <div class="validation-error"
+                  *ngIf="mentorForm.get('facilities').touched && mentorForm.get('facilities').hasError('required')">
+                  Facilities is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="controls">
+                <label class="control-label" for="rating">Self-Rating</label>
+                <div class="row">
+                  <div class="rating" align="center">
+                    <input type="radio" id="star10" formControlName="rating" value="10" />
+                    <label class="good border" for="star10" title="Rocks!">10</label>
+                    <input type="radio" id="star9" formControlName="rating" value="9" />
+                    <label class="good border" for="star9" title="Rocks!">9</label>
+                    <input type="radio" id="star8" formControlName="rating" value="8" />
+                    <label class="bad border" for="star8" title="Pretty good">8</label>
+                    <input type="radio" id="star7" formControlName="rating" value="7" />
+                    <label class="bad border" for="star7" title="Pretty good">7</label>
+                    <input type="radio" id="star6" formControlName="rating" value="6" />
+                    <label class="bad border" for="star6" title="Meh">6</label>
+                    <input type="radio" id="star5" formControlName="rating" value="5" />
+                    <label class="verybad border" for="star5" title="Meh">5</label>
+                    <input type="radio" id="star4" formControlName="rating" value="4" />
+                    <label class="verybad border" for="star4" title="Kinda bad">4</label>
+                    <input type="radio" id="star3" formControlName="rating" value="3" />
+                    <label class="verybad border" for="star3" title="Kinda bad">3</label>
+                    <input type="radio" id="star2" formControlName="rating" value="2" />
+                    <label class="verybad border" for="star2" title="Sucks big tim">2</label>
+                    <input type="radio" id="star1" formControlName="rating" value="1" />
+                    <label class="verybad border" for="star1" title="Sucks big time">1</label>
+                  </div>
+                </div>
+              </div>
+              <div class="validation-error"
+                *ngIf="mentorForm.get('rating').touched && mentorForm.get('rating').hasError('required')">
+                Facilities is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mt-2" *ngIf="skillAdded">
+          <div class="alert alert-success alert-dismissible fade show alert-msg" role="alert">
+            Skill Added SuccessFully
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <button class="btn btnSubmit" type="submit" [disabled]="!mentorForm.valid">Add Skill</button>
+        <div *ngIf="skillsData[0].skillName!=null">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Skill Name</th>
+                <th scope="col">Experiance</th>
+                <th scope="col">Facilities</th>
+                <th scope="col">Trainings Delivered</th>
+                <th scope="col">Self Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let skill of skillsData">
+                <td>{{skill.skillName}}</td>
+                <td>{{skill.experience}}</td>
+                <td>{{skill.facilities}}</td>
+                <td>{{skill.trainings}}</td>
+                <td>{{skill.rating}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

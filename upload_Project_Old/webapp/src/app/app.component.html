@@ -1,0 +1,47 @@
+<header>
+        <div class="row">
+            <nav
+                class=" col-lg-12 navbar navbar-expand-md navbar-dark navbar-bg text-light">
+                <h4>
+                    <i class=" material-icons md-31 ml-3">directions_bike</i>__VRS
+                </h4>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ml-3 mr-2"
+                    id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                       <li class="nav-item active "><a (click)="clickOnAddBookings()" class="nav-link" routerLink="search-bar/"><i class="material-icons lg-20">home</i></a></li>
+                       <li class="nav-item  active " *ngIf="this.vehicleService.isAdmin"><a class="nav-link" routerLink="approval/" >Approve Users</a></li>
+                        <li class="nav-item  active " *ngIf="loggedIn() && !this.vehicleService.isAdmin"><a class="nav-link" routerLink="bookings/" >Bookings</a></li>
+                        <li class="nav-item  active " *ngIf="this.vehicleService.isAdmin"><a class="nav-link" routerLink="addVehicle/" >Add Vehicle</a></li>
+                        <li class="nav-item nav-link active" *ngIf="loggedIn()"><i
+                            class="material-icons md-30 ">person</i> {{this.vehicleListService.userName}}</li>
+
+                        <li class="nav-item active "  *ngIf="loggedIn()" (click)="this.authService.logout()"><a class="nav-link" routerLink="search-bar/">logout</a></li>
+
+                        <li class="nav-item active" (click)="clickOnAddBookings()" *ngIf="!loggedIn()">
+                                <a class="nav-link" routerLink="login/">Login</a>
+                            </li>
+
+                            <li class="nav-item active" (click)="clickOnAddBookings()" *ngIf="!loggedIn()">
+                                <a class="nav-link" routerLink="signup/">Signup</a>
+                            </li>
+                
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <router-outlet></router-outlet>
+    
+
+
+
+<footer>
+		<nav
+			class="navbar navbar-expand-md navbar-dark navbar-bg text-light fixed-bottom">Copyright
+			2019</nav>
+	</footer>

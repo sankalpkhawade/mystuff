@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="card-deck add-to-cart mb-5 pb-5">
+    <div>
+      <div class="card mt-4">
+        <img class="card-img-top" src="{{vehicleIte.image}}" alt="Card image cap">
+        <div class="card-body pr-3 pl-3 pb-3">
+          <div class="row">
+            <h5 class="col">
+              <label name="name" id="testname">{{vehicleIte.type}}</label>
+            </h5>
+            <label name="price" class="float-right text-danger pr-3">{{vehicleIte.price | currency:"₹"}} / Day</label>
+          </div>
+          <h5><label name="category" class="text-success">{{vehicleIte.number}}</label></h5>
+          <!-- <div class="card-subtitle text-muted">
+            	<span *ngIf="isEditAllowed() && foodIte.active" class="badge badge-success veralign pt-1 pb-1">Active</span>
+           <span *ngIf="foodIte.freeDelivery"
+              class="float-right ml-auto"> <i class="material-icons" 
+              id="icon-shipping">local_shipping</i> <span
+              class="badge badge-info mt-1 pt-1 pb-1" id="badge-free">Offer</span>
+            </span>
+          </div> -->
+          <div class="col-12 mt-2" *ngIf="cartAdded">
+            <div class="alert alert-success alert-dismissible fade show alert-msg" role="alert">
+              Vehicle booked successfully.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+          <span *ngIf="isEditAllowed()" class="text-muted float-left mt-0 pt-0"> <i
+              class="material-icons icon-size mb-0 pd-0">access_time</i> <label
+              class="icon-size mb-0 pd-0">Insurance Date</label> <label id="dateofLaunch" name="date"
+              class="d-block mt-0 pd-0">{{vehicleIte.insuranceExpiryDate | date:'dd/MM/yyyy'}}</label>
+            <label class="icon-size mb-0 pd-0">Service Due Date</label> <label id="dateofLaunch" name="date"
+              class="d-block mt-0 pd-0">{{vehicleIte.serviceDueDate | date:'dd/MM/yyyy'}}</label>
+            <label class="icon-size mb-0 pd-0">Last Service Date</label> <label id="dateofLaunch" name="date"
+              class="d-block mt-0 pd-0">{{vehicleIte.lastServicedDate | date:'dd/MM/yyyy'}}</label>
+          </span>
+
+          <button type="button" class="btn btn-success float-right" (click)="addToCart(vehicleIte.number)"
+            *ngIf="!isEditAllowed()">
+            Book <i class="material-icons veralign">sports_motorsports</i>
+          </button>
+          <div class="row" *ngIf="isEditAllowed()">
+            <div class="col-12">
+              <a class="btn btn-primary float-right" [routerLink]="['/cartUpdated1',vehicleIte.number]">
+                <i class="material-icons edit-icon">edit</i> Edit
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- <bean id="controller" class="com.cognizant.springlearn.controller.EmployeeController" -->
+	<!-- autowire="byName"></bean> -->
+	<!-- <bean id="dao" class="com.cognizant.springlearn.dao.EmployeeDao" -->
+	<!-- autowire="byName"></bean> -->
+	<!-- <bean id="service" class="com.cognizant.springlearn.service.EmployeeService" -->
+	<!-- autowire="byName"></bean> -->
+
+	<bean id="departmentBeanOne" class="com.cognizant.springlearn.bean.Department">
+		<property name="id" value="1" />
+		<property name="name" value="Payroll" />
+	</bean>
+	<bean id="departmentBeanTwo" class="com.cognizant.springlearn.bean.Department">
+		<property name="id" value="2" />
+		<property name="name" value="Support" />
+	</bean>
+	<bean id="departmentBeanThree" class="com.cognizant.springlearn.bean.Department">
+		<property name="id" value="3" />
+		<property name="name" value="Testing" />
+	</bean>
+	<!-- <bean id="departmentArray" class="com.cognizant.springlearn.dao.EmployeeDao"> -->
+	<!-- <constructor-arg> -->
+	<!-- <array> -->
+	<!-- <ref bean="departmentBeanOne" /> -->
+	<!-- <ref bean="departmentBeanTwo" /> -->
+	<!-- <ref bean="departmentBeanThree" /> -->
+	<!-- </array> -->
+	<!-- </constructor-arg> -->
+	<!-- </bean> -->
+	<bean id="skillHtml" class="com.cognizant.springlearn.bean.Skill">
+		<property name="id" value="1" />
+		<property name="name" value="HTML" />
+	</bean>
+	<bean id="skillCss" class="com.cognizant.springlearn.bean.Skill">
+		<property name="id" value="2" />
+		<property name="name" value="CSS" />
+	</bean>
+	<bean id="skillJs" class="com.cognizant.springlearn.bean.Skill">
+		<property name="id" value="3" />
+		<property name="name" value="JS" />
+	</bean>
+
+	<bean id="employeeOne" class="com.cognizant.springlearn.bean.Employee">
+		<property name="id" value="1122" />
+		<property name="name" value="John" />
+		<property name="salary" value="20000.00" />
+		<property name="permanent" value="true" />
+		<property name="dateOfBirth" value="07/25/1998" />
+		<property name="department" ref="departmentBeanOne" />
+		<property name="skills">
+			<array>
+				<ref bean="skillHtml" />
+				<ref bean="skillCss" />
+				<ref bean="skillJs" />
+			</array>
+		</property>
+	</bean>
+	<bean id="employeeTwo" class="com.cognizant.springlearn.bean.Employee">
+		<property name="id" value="1125" />
+		<property name="name" value="Psycho" />
+		<property name="salary" value="25000.00" />
+		<property name="permanent" value="true" />
+		<property name="dateOfBirth" value="03/16/1998" />
+		<property name="department" ref="departmentBeanTwo" />
+		<property name="skills">
+			<array>
+				<ref bean="skillHtml" />
+				<ref bean="skillCss" />
+				<ref bean="skillJs" />
+			</array>
+		</property>
+	</bean>
+	<bean id="employeeThree" class="com.cognizant.springlearn.bean.Employee">
+		<property name="id" value="1123" />
+		<property name="name" value="Imu" />
+		<property name="salary" value="30000.00" />
+		<property name="permanent" value="true" />
+		<property name="dateOfBirth" value="03/13/1998" />
+		<property name="department" ref="departmentBeanThree" />
+		<property name="skills">
+			<array>
+				<ref bean="skillHtml" />
+				<ref bean="skillCss" />
+				<ref bean="skillJs" />
+			</array>
+		</property>
+	</bean>
+	<bean id="employeeFour" class="com.cognizant.springlearn.bean.Employee">
+		<property name="id" value="482" />
+		<property name="name" value="Gill" />
+		<property name="salary" value="15000.00" />
+		<property name="permanent" value="true" />
+		<property name="dateOfBirth" value="02/06/1998" />
+		<property name="department" ref="departmentBeanOne" />
+		<property name="skills">
+			<array>
+				<ref bean="skillHtml" />
+				<ref bean="skillCss" />
+				<ref bean="skillJs" />
+			</array>
+		</property>
+	</bean>
+	<bean id="employeeList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="employeeOne"></ref>
+				<ref bean="employeeTwo"></ref>
+				<ref bean="employeeThree"></ref>
+				<ref bean="employeeFour"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?> <beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	https://www.springframework.org/schema/beans/spring-beans.xsd"> <bean id="employeeObject" 
+	class="com.cognizant.springlearn.bean.Employee"> <property name="id" value="1122"></property> 
+	<property name="name" value="John"></property> <property name="salary" value="30000"></property> 
+	<property name="permanent" value="true"></property> <property name="dateOfBirth" 
+	value="12/02/2019"></property> <property name="department" ref="departmentBean" 
+	/> <property name="skill"> <array> <ref bean="skillHtml" /> <ref bean="skillCss" 
+	/> <ref bean="skillJs" /> </array> </property> </bean> <bean id="department1" 
+	class="com.cognizant.springlearn.bean.Department"> <property name="id" value="1" 
+	/> <property name="name" value="Payroll" /> </bean> <bean id="department2" 
+	class="com.cognizant.springlearn.bean.Department"> <property name="id" value="2" 
+	/> <property name="name" value="Support" /> </bean> <bean id="department3" 
+	class="com.cognizant.springlearn.bean.Department"> <property name="id" value="3" 
+	/> <property name="name" value="HR" /> </bean> <bean id="skillHtml" class="com.cognizant.springlearn.bean.Skill"> 
+	<property name="id" value="1" /> <property name="name" value="Html" /> </bean> 
+	<bean id="skillCss" class="com.cognizant.springlearn.bean.Skill"> <property 
+	name="id" value="2" /> <property name="name" value="Css" /> </bean> <bean 
+	id="skillJs" class="com.cognizant.springlearn.bean.Skill"> <property name="id" 
+	value="3" /> <property name="name" value="Js" /> </bean> <bean id="employeeOne" 
+	class="com.cognizant.springlearn.bean.Employee"> <property name="id" value="1123"></property> 
+	<property name="name" value="James"></property> <property name="salary" value="20000"></property> 
+	<property name="permanent" value="false"></property> <property name="dateOfBirth" 
+	value="11/09/2018"></property> <property name="department" ref="department1" 
+	/> <property name="skill"> <array> <ref bean="skillHtml" /> <ref bean="skillCss" 
+	/> <ref bean="skillJs" /> </array> </property> </bean> <bean id="employeeTwo" 
+	class="com.cognizant.springlearn.bean.Employee"> <property name="id" value="1121"></property> 
+	<property name="name" value="Rod"></property> <property name="salary" value="40000"></property> 
+	<property name="permanent" value="true"></property> <property name="dateOfBirth" 
+	value="15/03/2016"></property> <property name="department" ref="department2" 
+	/> <property name="skill"> <array> <ref bean="skillHtml" /> <ref bean="skillCss" 
+	/> <ref bean="skillJs" /> </array> </property> </bean> <bean id="employeeThree" 
+	class="com.cognizant.springlearn.bean.Employee"> <property name="id" value="1122"></property> 
+	<property name="name" value="Bill"></property> <property name="salary" value="50000"></property> 
+	<property name="permanent" value="true"></property> <property name="dateOfBirth" 
+	value="09/01/2020"></property> <property name="department" ref="department3" 
+	/> <property name="skill"> <array> <ref bean="skillHtml" /> <ref bean="skillCss" 
+	/> <ref bean="skillJs" /> </array> </property> </bean> <bean id="employeeList" 
+	class="java.util.ArrayList"> <constructor-arg> <List> <ref bean="employeeOne" 
+	/> <ref bean="employeeTwo" /> <ref bean="employeeThree" /> </List> </constructor-arg> 
+	</bean> <bean id="controller" class="com.cognizant.springlearn.controller.EmployeeController"> 
+	<property name="employeeService"> <ref bean="service"></ref> </property> 
+	</bean> <bean id="service" class="com.cognizant.springlearn.service.EmployeeService"> 
+	<property name="employeeDao"> <ref bean="dao"></ref> </property> </bean> 
+	<bean id="dao" class="com.cognizant.springlearn.dao.EmployeeDao"> <property 
+	name="employee"> <ref bean="employee"></ref> </property> </bean> <bean id="controller" 
+	class="com.cognizant.springlearn.controller.EmployeeController" autowire="byName"></bean> 
+	<bean id="dao" class="com.cognizant.springlearn.dao.EmployeeDao" autowire="byName"></bean> 
+	<bean id="service" class="com.cognizant.springlearn.service.EmployeeService" 
+	autowire="byName"></bean> </beans> -->

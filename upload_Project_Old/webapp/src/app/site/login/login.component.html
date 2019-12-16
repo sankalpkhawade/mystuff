@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="col-lg-5 mx-auto">
+      <div class="card mt-5">
+        <div class="row ml-3 mr-3 mt-3">
+          <h2>Login</h2>
+        </div>
+
+        <div class="row ml-2 mr-2 heading">
+          <div class="col-lg-12">
+            <div class="alert alert-info" *ngIf="this.vehicleService.clickedOnAdd">Please login before adding an
+              item to Bookings.</div>
+          </div>
+        </div>
+        <div class="row ml-2 mr-2 heading">
+          <div class="col-lg-12">
+            <div class="alert alert-danger" *ngIf="!this.authService.validCredentials">Invalid username/password.</div>
+          </div>
+        </div>
+        <div class="row ml-2 mr-2 heading">
+            <div class="col-lg-12">
+              <div class="alert alert-dark" *ngIf="this.authService.userStatus">User Not Approved/Denied</div>
+            </div>
+          </div>
+        <form [formGroup]="loginForm" (submit)="onSubmit()">
+          <div class="md-20">
+            <div class="row ml-2 mr-2 header">
+              <div class="col-12 heading">
+                <div>
+                  <label for="username">Username</label>
+                </div>
+                <input class="form-control" type="text" id="username"
+                formControlName="username" placeholder="Enter Username" required >
+                <div class="invalid" *ngIf="username.touched && username.invalid && username.errors.required">Username is required</div>
+              </div>
+            </div>
+
+            <div class="row ml-2 mr-2 header">
+              <div class="col-12 heading">
+                <div>
+                  <label for="password">Password</label>
+                </div>
+                <input class="form-control" type="password" id="password"
+                formControlName="password"  placeholder="Enter Password" required>
+                <div class="invalid" *ngIf="password.touched && password.invalid && password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <div class="row ml-2 mr-2 heading">
+              <div class="col-6 ">
+                <button type="submit" class="btn btn-blue">Login</button>
+              </div>
+              <div class="ml-auto grey mr-1">
+                New Here? <a class="design" (click)="toSignup()">Signup</a>
+
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

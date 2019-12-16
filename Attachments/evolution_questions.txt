@@ -1,0 +1,60 @@
+questions
+
+
+what is api gateway?
+
+ The API Gateway is responsible for request routing, composition, and protocol translation. ... 
+It can translate between web protocols such as HTTP and WebSocket and web-unfriendly protocols 
+that are used internally. The API Gateway can also provide each client with a custom API.
+
+
+why do we need microservices?
+
+
+Microservice architecture allows you to maximize deployment velocity and application reliability by 
+helping you move at the speed of the market. Since applications each run in their own containerized environment, 
+applications can be moved anywhere without altering the environment.
+
+
+why do we need eureka discovery service?
+
+Eureka is a REST (Representational State Transfer) based service that is primarily used in the AWS cloud 
+for locating services for the purpose of load balancing and failover
+ of middle-tier servers.
+
+can we dockerize angular application?
+yes w can dockerize the angular application
+
+
+what is loadbalancing?
+
+The client makes a request using that public IP, and Netscaler decides in which internal application server
+ it forwards the request by round robin or sticky session algorithm. We call it server side load balancing.
+
+What is Docker?
+It is a containerization tool, it creates images, containers for an application.
+
+What is a container?
+container includes libs and req dependencis
+
+What is the use of API?
+api is used to connect services and maintain interaoperablity.
+
+How do you run docker?
+we need commands to run, default image , lib, dependencies.
+
+What are different tests?
+angular - karma,
+end to end tests - jasmine , cocumber.
+
+What is eureka discovery service?
+eureka is naming server, to identify the services.
+
+Can authentication be done on zuul filter?
+Yes it can be done by using a filter in the zuul gateway 
+but as time being a parameter for us we implemented it in a separate microservice.
+
+
+
+
+

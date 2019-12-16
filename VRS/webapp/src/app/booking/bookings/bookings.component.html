@@ -1,0 +1,52 @@
+
+<h2 class="heading ">Booking Details</h2>
+<div class="row  ml-2 mr-2 " *ngIf="bookingsService.bookingsEmpty">
+
+		<div class="col-lg-9   mx-auto">
+
+			<div class="alert alert-danger">No item in Bookings. Use 'Book Now' option in <a class="list" routerLink="/search-bar" >Vehicle</a>.</div>
+
+		</div>
+
+
+	</div>
+
+<div class="row list-group ml-2 mr-2 " *ngIf="!bookingsService.bookingsEmpty">
+      
+			<div  class="col-lg-9 list-group-item  mx-auto" >
+				<div class="row" >
+					<div class=col-3>
+					<h4 class="grey">{{bookingsService.bookings.vehicle.name}}</h4></div>
+					<div class="col-3">
+						<h6>Booking Start Date</h6>
+						<p>{{bookingsService.bookings.bookingStart| date:'mediumDate'}}</p>
+					</div>
+					<div class="col-3">
+							<h6>Booking End Date</h6>
+							<p>{{bookingsService.bookings.bookingEnd| date:'mediumDate'}}</p>
+						</div>
+						<div class="ml-auto">
+								<button type="button" class="btn btn-danger" (click)="this.vehicleService.removeFromBookings(bookingsService.bookings.vehicle.id)" > <i
+									class="material-icons md-30 white "> delete_forever </i>Cancel Booking
+								</button>
+							</div>
+				</div>
+			</div>
+
+
+			<div class="col-lg-9 list-group-item  mx-auto ">
+				<div class="row">
+					<div class="col-4">
+					<h3>Total Cost of Booking</h3></div>
+					<div class="col-4">
+					<input class="form-control" type="text" placeholder="Enter Promo Code"></div>
+					<div class=" ml-auto">
+						<h5 class="text-color">	{{bookingsService.bookings.price | currency:'USD'}}</h5>
+					</div>
+				</div>
+
+			</div>
+			</div>
+
+
+ 

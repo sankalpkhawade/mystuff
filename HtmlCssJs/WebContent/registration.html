@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+<link rel="stylesheet" type="text/css" href="css/style1.css">
+<script type="text/javascript">
+	function validateForm(){
+		var uname=document.forms["myForm"]["username"].value;
+		var password1=document.forms["myForm"]["password"].value;
+		var email1=document.forms["myForm"]["email"].value;
+		var contact1=document.forms["myForm"]["contact"].value;
+		var address1=document.forms["myForm"]["address"].value;
+		var country1=document.forms["myForm"]["country"].value;
+		var gen=document.forms["myForm"]["gender"].value;
+		var x=document.getElementById("male").required;
+		var y=document.getElementById("dept").required;
+		if(uname==""){
+			alert("Please enter the user name");
+			return false;
+		}
+		if(password1==""){
+			alert("Please enter the password");
+			return false;
+		}
+		if(email1==""){
+			alert("Please enter the email Id");
+			return false;
+		}
+		if(contact1==""){
+			alert("Please enter the contact number");
+			return false;
+		}
+		if(address1==""){
+			alert("Please enter the address");
+			return false;
+		}
+		if(country1=="selectcountry"){
+			alert("Please select country name");
+			return false;
+		}
+		if(gen==""){
+			alert("Please select Gender");
+			return false;
+		}
+		
+		
+	}
+</script>
+</head>
+<body>
+	<form action="" method="get" name="myForm" onsubmit="return validateForm()">
+	<h1>Personal Details</h1>
+	<table class="table1" border="1">
+		<tr>
+			<td><label id="username" for="user-Name">Name</label></td>
+			<td><input type="text" name="username" placeholder="Enter User Name" id="user-Name" required></td>
+		</tr>
+		<tr>
+			<td><label id="password" for="user-password">Password</label></td>
+			<td><input type="password" name="password" placeholder="Enter Password" required></td>
+		</tr>
+		<tr>
+			<td><label id="email" for="email-id">Email Id</label></td>
+			<td><input type="email" name="email" placeholder="Enter Email Id" required></td>
+		</tr>
+		<tr>
+			<td><label id="contact" for="contact-number">Contact Number</label></td>
+			<td><input type="number" name="contact" placeholder="Enter Contact Number" maxlength="10" required></td>
+		</tr>
+		<tr>
+			<td><label id="address" for="address">Address</label></td>
+			<td><textarea name="address" rows="3" cols="30" placeholder="Enter your address" required></textarea></td>
+		</tr>
+		<tr>
+			<td><label id="country" for="country">Country</label></td>
+			<td><select required name="country">
+				<option value="selectcountry">Select Country</option>
+				<option value="India">India</option>
+				<option value="US">US</option>
+				<option value="London">London</option>
+				<option value="UK">UK</option>
+				<option value="Spain">Spain</option></select>
+			</td>
+		</tr>
+		<tr>
+			<td><label id="department" for="department">Department</label></td>
+			<td><input type="checkbox" name="java" id="dept" required><label>Java</label><input type="checkbox" name="ui" id="dept" required><label>UI</label><input type="checkbox" name="database" id="dept" required><label>Database</label></td>
+		</tr>
+		<tr>
+			<td><label id="gender" for="gender">Gender</label></td>
+			<td><input type="radio" name="gender" id="male" required><label>Male</label><input type="radio" name="gender" id="male" required><label>Female</label></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="submit" value="Submit"></td>
+			<td><input type="reset" name="reset" value="Reset"></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

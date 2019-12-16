@@ -1,0 +1,83 @@
+<!-- 
+<br><br>
+<div class="container mb-4 pb-4">
+        <h2>Edit Menu Item</h2>
+        <div class="alert alert-success" *ngIf="cartUpdated">Product details saved successfully.</div>
+        <form class="needs-validation" [formGroup]="editForm" (submit)="onSubmitEditForm1()" *ngIf="!cartUpdated">
+            <div class="form-row">
+                <div class="form-group col-md-12 mb-3">
+		  <label for="name">Item name</label> 
+		  <input type="hidden" class="form-control" id="id" formControlName="id">
+          <input type="text" class="form-control" id="name" formControlName="name">
+          <div class="validation-error" *ngIf="editForm.get('name').touched && editForm.get('name').hasError('required')">
+            Item Name is required
+          </div>
+          <div class="validation-error" *ngIf="editForm.get('name').touched && editForm.get('name').hasError('maxlength')">
+            Item Name cannot exceed 200 characters
+          </div>
+                </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group  col-md-12 mb-3">
+          <label for="image">Photo URL</label>
+          <input type="text" class="form-control" id="name" formControlName="imageLink">
+          <div class="validation-error" *ngIf="editForm.get('imageLink').touched && editForm.get('imageLink').hasError('required')">
+            Photo URL is required
+          </div>
+         </div>
+        </div>
+            <div class="form-row">
+                <div class="form-group col-md-3 mb-3">
+          <label for="validationServer033">Price</label> 
+          <input type="text" class="form-control" id="price" formControlName="price">
+          <div class="validation-error" *ngIf="editForm.get('price').touched && editForm.get('price').hasError('required')">
+            Price is required
+          </div>
+          <div class="validation-error" *ngIf="editForm.get('price').touched && editForm.get('price').hasError('pattern')">
+            Price can only contain numbers.
+          </div>
+        </div>
+                <div class="form-group col-md-3 mb-3">
+          <label for="dateOfLaunch">Date of Launch</label> 
+          <input type="text" class="form-control" id="dateOfLaunch" formControlName="dateOfLaunch"  placeholder="dd/mm/yyyy">
+                </div>
+                <div class="col-md-3 mb-3 select-outline">
+          <label for="category">Category</label> 
+          <select class="form-control mdb-select md-form md-outline colorful-select dropdown-primary" id="category" formControlName="category">
+                        <option></option>
+                        <option>Main Course</option>
+                        <option>Starters</option>
+                        <option>Dessert</option>
+                    </select>
+                    <div class="validation-error" *ngIf="editForm.get('category').touched && editForm.get('category').hasError('required')">
+            Category is required
+          </div>
+                </div>
+                <div class="form-group col-md-3 mb-3">
+                    <label>Active</label>
+                    <div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input"
+                            formControlName="active" name="active" id="active1" [value]=true>
+                            <label class="custom-control-label" for="active1">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" class="custom-control-input"
+                            formControlName="active" id="active2" name="active" [value]=false>
+                            <label class="custom-control-label" for="active2">No</label>
+                        </div>
+                        <div class="invalid-feedback">Select active status</div>
+                </div>
+            </div>
+            </div>
+            <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="freeDelivery" formControlName="freeDelivery"
+                    class="custom-control-input" id="freeDelivery"> <label
+                    class="custom-control-label" for="freeDelivery">Free
+                    Delivery</label>
+            </div>
+        </div>
+		
+            <button class="btn login text-white" type="submit" [disabled]="!editForm.valid">Save</button>
+        </form> -->

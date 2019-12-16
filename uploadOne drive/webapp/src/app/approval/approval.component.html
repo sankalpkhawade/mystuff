@@ -1,0 +1,32 @@
+<div class="container mx-auto ml-4">
+	<h2 class="heading mt-2 mb-4">Pending Details</h2>
+</div>
+<div class="row  ml-2 mr-2 " *ngIf="pendingUserList?.length == 0">
+	<div class="col-lg-4 mx-auto">
+		<div class="alert alert-success">No pending applications.</div>
+	</div>
+</div>
+<div class="row card border-secondary mb-5 mx-auto" style="max-width: 41rem;" *ngIf="pendingUserList?.length != 0">
+	<div *ngFor="let user of pendingUserList">
+		<div class="card-header">
+			<div class="row">
+				<h4 class="col-4">{{user.firstname}}</h4>
+				<h4 class="col-4">{{user.gender}}</h4>
+				<h4 class="col-4">{{user.contact}}</h4>
+			</div>
+		</div>
+		<div class="card-body text-secondary">
+			<h5 class="card-title">Select User Status</h5>
+			<div class="card-text">
+				<div class="row">
+					<div class="ml-auto">
+						<button type="button" class="btn btn-success mr-2" (click)="approve(user)"><i
+								class="material-icons">person_add</i></button>
+						<button type="button" class="btn btn-danger" (click)="deny(user)"><i
+								class="material-icons">person_add_disabled</i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,159 @@
+/* FONT  */
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Raleway', sans-serif;
+}
+/* 	Navbar */
+nav, nav a {
+	color: #ffffff;
+	background-color: #450603;
+}
+
+a:HOVER {
+	color: #fff;
+}
+
+h5, h6 {
+	color: #a1a1a1;
+}
+
+.rupees {
+	float: right;
+}
+
+.card a {
+	background-color: #450603;
+}
+
+.active-class {
+	float: left;
+	vertical-align: middle;
+}
+
+.offer {
+	float: right;
+}
+
+.cart {
+	float: right;
+}
+
+.delivery {
+	color: blue;
+	vertical-align: middle;
+}
+
+.bg-image {
+	background-image:
+		url("https://images.unsplash.com/photo-1556327880-5fbc1801bc90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80");
+	min-height: 200px Center;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:relative;
+}
+
+.bg-image h1 {
+	color: #ffffff;
+}
+
+.cart-icon {
+	vertical-align: middle;
+}
+
+.launch {
+	vertical-align: middle;
+	font-size: 15px;
+}
+
+.login {
+	background-color: #450603;
+}
+
+.new-user {
+	float: right;
+}
+
+.login-form {
+	max-width: 400px;
+	margin: 60px auto;
+	margin-top: 0;
+}
+
+.signup-form {
+	max-width: 600px;
+	margin: 60px auto;
+	margin-top: 0;
+}
+
+.text-down {
+	vertical-align: text-bottom;
+}
+
+/* MENU ITEM LIST */
+
+/* ! CARD CSS */
+.card-deck .card {
+	/* padding-bottom:10px; */
+	width: 18rem;
+}
+
+.container-fluid {
+	margin-top: 10px;
+	align-content: center;
+}
+
+.icon-size {
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+#testname {
+	white-space: normal;
+}
+
+.card-subtitle {
+	padding: 16px 0px 16px 0px;
+	font-size: 12px;
+}
+
+.card-text {
+	font-size: 14px;
+}
+
+.veralign {
+	vertical-align: middle;
+}
+
+.add-to-cart .btn-success, .edit-cards .btn-success, .submit .btn-success
+	{
+	background-color: #450603;
+	border: 0px;
+}
+
+#badge-free {
+	vertical-align: top;
+}
+
+#dateofLaunch {
+	font-size: 12px;
+	vertical-align: top;
+}
+
+#icon-shipping {
+	color: #1e90ff;
+}
+
+/* CART */
+.delete-icon-size {
+	font-size: 2rem;
+}
+/* 	Footer */
+.footer {
+	position:fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #450603;
+	color: white;
+}

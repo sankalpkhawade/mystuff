@@ -1,0 +1,31 @@
+<br><br>
+	<div class="container login-form pt-4 mt-4 border p-5">
+		<!-- Default form login -->
+		<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+
+			<p class="h3 mb-3">Login</p>
+			<div class="alert alert-info" role="alert" *ngIf="authSource === 'cart'">
+                Please login before adding an item to Cart.
+            </div>
+			<div class="alert alert-danger" role="alert" *ngIf="!isLoginValid">
+                Invalid Username / Password
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username</label> 
+                <input type="text" id="username" ngModel name="username"
+                #username="ngModel" class="form-control mb-1" placeholder="Enter Username" required>
+                <div class="validation-error" *ngIf="username.touched && !username.valid">Username is required.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control mb-1" placeholder="Enter Password"  id="password" 
+                ngModel name="password" #password="ngModel"  required>
+                <div class="validation-error" *ngIf="password.touched && !password.valid">Password is required.</div>
+            </div>
+            <p>
+                <button class="btn text-white login mt-2" type="submit" [disabled]="!loginForm.valid">Login</button> 
+                <span class="new-user text-muted">New User? <a routerLink="/signup">Signup</a></span>
+			</p>
+		</form>
+	</div>

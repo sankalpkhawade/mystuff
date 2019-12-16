@@ -1,0 +1,7 @@
+ <app-search></app-search>
+		 <div class="row">
+			<app-item-info *ngFor="let product of vehicle" 
+				[vehicleIte]="product"
+				(cartUpdated)="addedToCart($event)"
+				class="col-12 col-md-6 col-lg-3"></app-item-info>
+		  </div> 

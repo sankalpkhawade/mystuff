@@ -1,0 +1,24 @@
+<div class="container ml-auto col-1">
+  <div class="input-group ">
+    <div class="input-group-prepend ">
+      <label class="input-group-text green lighten-3"><i
+          class="material-icons text-light">sort</i>
+     
+    <select class="form-control input-group-text green" style="color: black;font-size: large; font-weight: bold;" id="seater" name="sorting" [(ngModel)]="sortkey" (ngModelChange)="sortFunction()">
+      <option value="" selected>Sort By:</option>
+      <option value="seater">Seater</option>
+      <option value="type">Type</option>
+      <option value="price">Price</option>
+    </select>
+  </label>
+</div>
+  </div>
+</div>
+
+<div class="card-deck margin">
+
+  <div class="ml-5 mr-5" *ngFor="let item of vehicleItem">
+    <app-item-info [vehicleItem]="item" (deleteVehicleClicked)="deleteVehicle($event)"></app-item-info>
+  </div>
+
+</div>
